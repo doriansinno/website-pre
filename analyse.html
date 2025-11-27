@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BloodCheck – Analyse</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf"></script>
+</head>
+<body>
+  <div class="animation-layer">
+    <div class="ekg-line"></div>
+  </div>
+  <header>
+    <nav class="navbar">
+      <div class="logo">BloodCheck</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Start</a></li>
+        <li><a href="analyse.html">Analyse</a></li>
+        <li><a href="info.html">Info</a></li>
+        <li><a href="quellen.html">Quellen</a></li>
+        <li><a href="impressum.html">Impressum</a></li>
+        <li><a href="dsgvo.html">DSGVO</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section-card">
+      <h2>Analyse konfigurieren</h2>
+      <div class="grid-two">
+        <div>
+          <label class="label" for="gender">Geschlecht</label>
+          <select id="gender" class="select">
+            <option value="male">Mann</option>
+            <option value="female">Frau</option>
+          </select>
+        </div>
+        <div>
+          <label class="label" for="profile">Blutbild</label>
+          <select id="profile" class="select">
+            <option value="basic">Kleines Blutbild</option>
+            <option value="extended">Großes Blutbild</option>
+            <option value="hormone">Hormonprofil</option>
+            <option value="vital">Vitalprofil</option>
+          </select>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <h2>Werteingabe</h2>
+      <div id="values-container"></div>
+    </section>
+
+    <section class="section-card">
+      <h2>Auswertung</h2>
+      <div class="chart-wrapper">
+        <canvas id="statusChart" height="160"></canvas>
+      </div>
+      <div style="margin-top:16px; display:flex; gap:12px; flex-wrap:wrap;">
+        <button class="btn" id="downloadPdf">PDF Herunterladen</button>
+        <a class="btn" href="info.html">Alle Blutwerte im Detail</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">PDF, Diagramm und Farblogik lassen sich vollständig in <code>script.js</code> konfigurieren.</footer>
+  <script src="script.js"></script>
+</body>
+</html>

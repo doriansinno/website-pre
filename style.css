@@ -1,0 +1,298 @@
+:root {
+  --bg-primary: #0a0f1a;
+  --bg-secondary: #0f1727;
+  --accent-gold: #c9a646;
+  --accent-blue: #1d4ed8;
+  --accent-red: #b91c1c;
+  --accent-green: #1faa59;
+  --text-main: #e6e6e6;
+  --muted: #9ca3af;
+  --card: rgba(20, 30, 50, 0.8);
+  --border: rgba(201, 166, 70, 0.35);
+  --shadow: 0 20px 60px rgba(0, 0, 0, 0.55);
+  --blur-bg: blur(12px);
+  --glow: 0 0 30px rgba(201, 166, 70, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: radial-gradient(circle at 20% 20%, rgba(201, 166, 70, 0.08), transparent 30%),
+              radial-gradient(circle at 80% 0%, rgba(30, 64, 175, 0.15), transparent 28%),
+              linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+  color: var(--text-main);
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(201, 166, 70, 0.04), rgba(30, 64, 175, 0.05)),
+              radial-gradient(circle at 30% 40%, rgba(185, 28, 28, 0.07), transparent 30%);
+  pointer-events: none;
+  filter: blur(1px);
+  z-index: 0;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  backdrop-filter: blur(12px);
+  background: linear-gradient(180deg, rgba(10, 15, 26, 0.85), rgba(10, 15, 26, 0.6));
+  border-bottom: 1px solid var(--border);
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+}
+
+.logo {
+  font-size: 1.4rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--accent-gold);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 18px;
+}
+
+.nav-links a {
+  color: var(--text-main);
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: var(--accent-gold);
+  border-color: var(--border);
+  box-shadow: var(--glow);
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 32px auto 64px;
+  padding: 0 24px;
+}
+
+.hero {
+  text-align: center;
+  padding: 120px 16px 80px;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 5vw, 4rem);
+  margin-bottom: 16px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-gold);
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+}
+
+.hero p {
+  max-width: 720px;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.section-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px;
+  margin-bottom: 28px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+}
+
+.section-card h2 {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+  color: var(--accent-gold);
+}
+
+.section-card h3 {
+  color: var(--accent-gold);
+  margin-bottom: 8px;
+}
+
+.grid-two {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.select,
+.input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.select:focus,
+.input:focus {
+  border-color: var(--accent-gold);
+  box-shadow: var(--glow);
+}
+
+.value-row {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.value-row .description {
+  grid-column: 1 / -1;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.badge {
+  padding: 10px 12px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.badge.low { background: rgba(29, 78, 216, 0.15); color: #8cb4ff; }
+.badge.normal { background: rgba(31, 170, 89, 0.18); color: #c4f2d4; }
+.badge.high { background: rgba(185, 28, 28, 0.18); color: #f7c0c0; }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #b8871c, #d9b56f);
+  color: #0a0a0a;
+  padding: 14px 16px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 700;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.45);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.6);
+}
+
+.info-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.info-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: var(--shadow);
+}
+
+.info-card h3 { color: var(--accent-gold); margin-bottom: 10px; }
+.info-card p { color: var(--muted); margin-bottom: 8px; line-height: 1.6; }
+
+.footer {
+  text-align: center;
+  color: var(--muted);
+  padding: 40px 16px 24px;
+}
+
+.chart-wrapper {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+.animation-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.65;
+  mix-blend-mode: screen;
+}
+
+/* Option C – EKG-Linie. To swap animation, replace .ekg-line with preferred SVG/CSS. */
+.ekg-line {
+  position: absolute;
+  top: 20%;
+  left: -50%;
+  width: 200%;
+  height: 180px;
+  background: radial-gradient(circle at 10% 50%, rgba(31, 170, 89, 0.25) 0, transparent 35%),
+              radial-gradient(circle at 50% 50%, rgba(31, 170, 89, 0.25) 0, transparent 35%),
+              radial-gradient(circle at 90% 50%, rgba(31, 170, 89, 0.25) 0, transparent 35%);
+  mask: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
+}
+
+.ekg-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(31, 170, 89, 0.9),
+    rgba(31, 170, 89, 0.9) 4px,
+    rgba(31, 170, 89, 0.2) 8px,
+    rgba(31, 170, 89, 0.2) 12px
+  );
+  filter: blur(1px);
+  animation: ekg-move 12s linear infinite;
+}
+
+/* To adjust speed/intensity of the animation tweak duration and gradient strengths above. */
+@keyframes ekg-move {
+  from { transform: translateX(0); }
+  to { transform: translateX(-25%); }
+}
+
+@media (max-width: 720px) {
+  .navbar { flex-direction: column; gap: 10px; }
+  .value-row { grid-template-columns: 1fr; }
+  .animation-layer { opacity: 0.5; }
+}
